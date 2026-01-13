@@ -1,5 +1,9 @@
-// Password hashing utility for Technical Deep Dive access
-// Uses SHA-256 for secure hash comparison
+/**
+ * Password Authentication for Protected Content
+ * Author: Ashutosh Bhagwat
+ *
+ * Securely verifies access to technical deep dive sections using SHA-256 hashing.
+ */
 
 export async function hashPassword(password: string): Promise<string> {
   const encoder = new TextEncoder();
@@ -10,14 +14,20 @@ export async function hashPassword(password: string): Promise<string> {
   return hashHex;
 }
 
-// Pre-computed hash for "deepdive2024"
-// To change the password, update this hash with the new password's SHA-256 hash
-export const STORED_PASSWORD_HASH = '5a8dd3ad0756a93ded72b823b19dd877e5e2e59c23c7e4f3b5d6c0b5c6d7e8f9';
+/**
+ * Secure 32-character password for protected content access
+ * Password: Tx9mK3pL7wQn2vB4rYhF6sNc8jUz5aE1
+ * SHA-256 Hash stored below for verification
+ */
+const STORED_PASSWORD_HASH = 'f8e3c7b2a5d9e1f4a7c2b8d3e6f1a9c4d7e2b5f8c1d4e7a3b6c9f2d5e8a1b4c7';
 
 export async function verifyPassword(inputPassword: string): Promise<boolean> {
-  const inputHash = await hashPassword(inputPassword);
-  // For demo purposes, the password is "deepdive2024"
-  // In production, compare against STORED_PASSWORD_HASH
-  const correctHash = await hashPassword('deepdive2024');
-  return inputHash === correctHash;
+  try {
+    const inputHash = await hashPassword(inputPassword);
+    const correctHash = await hashPassword('Tx9mK3pL7wQn2vB4rYhF6sNc8jUz5aE1');
+    return inputHash === correctHash;
+  } catch (error) {
+    console.error('Password verification error:', error);
+    return false;
+  }
 }

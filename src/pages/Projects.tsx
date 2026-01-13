@@ -1,54 +1,90 @@
-import { Navbar } from '@/components/Navbar';
-import { ProjectCard } from '@/components/ProjectCard';
-import { FloatingShapes } from '@/components/FloatingShapes';
+/**
+ * Projects Page - Portfolio Showcase
+ * Author: Ashutosh Bhagwat
+ */
 
-const projects = [
-  {
-    title: 'Edge AI Analytics Platform',
-    subtitle: 'Computer Vision at Scale',
-    description: 'Real-time analytics platform deployed across 13,000+ edge devices supporting 10,000+ ATMs and 2,000+ retail stores. Includes compliance monitoring, customer behavior analysis, and operational intelligence.',
-    tags: ['YOLO', 'OpenCV', 'Edge Computing', 'Raspberry Pi', 'NVIDIA Jetson'],
-  },
-  {
-    title: 'Tarsyer VPN',
-    subtitle: 'P2P Orchestration Platform',
-    description: 'Nebula-based P2P orchestration platform enabling secure remote access and bandwidth-efficient communication for distributed devices. Reduced infrastructure costs by ~$3K/year.',
-    tags: ['Nebula', 'P2P Networking', 'Security', 'DevOps'],
-  },
-  {
-    title: 'High-Speed OCR System',
-    subtitle: 'Industrial Computer Vision',
-    description: 'High-accuracy OCR systems for industrial conveyor belts and machine odometers operating under variable lighting conditions and high speeds.',
-    tags: ['OCR', 'TensorFlow', 'Computer Vision', 'Industrial IoT'],
-  },
-  {
-    title: 'Auto-Labeling Tool',
-    subtitle: 'ML Pipeline Optimization',
-    description: 'CPU-based auto-labeling tool using SAM (Segment Anything Model). Reduced annotation effort by 80% and accelerated model iteration cycles significantly.',
-    tags: ['SAM', 'Python', 'ML Pipeline', 'Annotation'],
-  },
-  {
-    title: 'One-Click Diagnostics',
-    subtitle: 'Operational Efficiency',
-    description: 'System health diagnostics platform that achieved ~9× operational efficiency improvement, cutting health checks from ~15 min to ~2 min.',
-    tags: ['Monitoring', 'FastAPI', 'Dashboard', 'Automation'],
-  },
-  {
-    title: 'AI Media Optimization',
-    subtitle: 'Camera-Based Analytics',
-    description: 'AI-driven media optimization system using camera-based analytics. Demonstrated via live enterprise client demos with real-time insights.',
-    tags: ['Deep Learning', 'Analytics', 'Real-time', 'Enterprise'],
-  },
-];
+import { Link } from 'react-router-dom';
+import { ArrowRight, ExternalLink } from 'lucide-react';
+import { Navbar } from '@/components/Navbar';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { FloatingShapes } from '@/components/FloatingShapes';
+import { projects } from '@/data/projectsData';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+function ProjectCard({ project, delay }: { project: typeof projects[0]; delay: number }) {
+  const [ref, isVisible] = useScrollAnimation<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      className={`group glass-card rounded-xl overflow-hidden hover-lift glow-hover ${
+        isVisible ? 'animate-slide-up' : 'opacity-0'
+      }`}
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <div className="h-2 bg-gradient-to-r from-primary to-accent" />
+
+      <div className="p-6">
+        <Badge className="mb-3 bg-gradient-to-r from-orange-400 to-orange-600 text-white border-0">
+          {project.category}
+        </Badge>
+        <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+          {project.title}
+        </h3>
+        <p className="text-muted-foreground text-sm mb-3">{project.subtitle}</p>
+        <p className="text-foreground/80 text-sm mb-4 line-clamp-3">{project.tagline}</p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.slice(0, 4).map((tag) => (
+            <Badge key={tag} variant="secondary" className="text-xs">
+              {tag}
+            </Badge>
+          ))}
+          {project.tags.length > 4 && (
+            <Badge variant="secondary" className="text-xs">
+              +{project.tags.length - 4} more
+            </Badge>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div className="flex gap-3">
+          <Button
+            asChild
+            className="flex-1 gradient-orange text-primary-foreground hover:opacity-90 transition-opacity"
+          >
+            <Link to={`/projects/${project.id}`}>
+              View Details <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          {project.demoUrl && (
+            <Button
+              variant="outline"
+              size="icon"
+              className="hover:bg-primary/10 hover:border-primary transition-all"
+              asChild
+            >
+              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       <section className="pt-24 pb-20 relative overflow-hidden">
         <FloatingShapes />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
@@ -56,25 +92,23 @@ export default function Projects() {
               Featured <span className="gradient-text">Projects</span>
             </h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Production-grade AI systems deployed across multiple continents and industries
+              Production-grade AI systems deployed across multiple continents and industries.
+              Click "View Details" to explore each project in depth.
             </p>
           </div>
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {projects.map((project, i) => (
-              <ProjectCard
-                key={i}
-                {...project}
-                delay={i * 100}
-              />
+              <ProjectCard key={project.id} project={project} delay={i * 100} />
             ))}
           </div>
 
           {/* Note */}
           <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground">
-              🔒 Click "Technical Deep Dive" on any project for detailed architecture and implementation details
+              🔒 Each project includes password-protected technical deep dives with architecture details,
+              metrics, and lessons learned
             </p>
           </div>
         </div>

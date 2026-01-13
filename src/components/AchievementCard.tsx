@@ -24,14 +24,14 @@ export function AchievementCard({
   return (
     <div
       ref={ref}
-      className={`glass-card rounded-xl p-6 hover-lift ${
+      className={`glass-card rounded-xl p-6 hover-lift glow-hover group ${
         isVisible ? 'animate-slide-up' : 'opacity-0'
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {/* Icon */}
-      <div className="w-12 h-12 rounded-xl gradient-purple flex items-center justify-center mb-4">
-        <Trophy className="h-6 w-6 text-primary-foreground" />
+      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform glow-hover shadow-lg">
+        <Trophy className="h-6 w-6 text-white" />
       </div>
 
       {/* Content */}

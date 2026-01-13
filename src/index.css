@@ -2,99 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Professional Purple Theme - Clean & Modern */
+/* Claude-Inspired Warm Orange Theme - Author: Ashutosh Bhagwat */
 
 @layer base {
   :root {
-    --background: 250 20% 98%;
-    --foreground: 250 25% 10%;
+    /* Warm cream and beige backgrounds */
+    --background: 30 25% 97%;
+    --foreground: 20 15% 17%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 250 25% 10%;
+    --card: 30 20% 99%;
+    --card-foreground: 20 15% 17%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 250 25% 10%;
+    --popover: 30 20% 99%;
+    --popover-foreground: 20 15% 17%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 0 0% 100%;
+    /* Burnt orange primary (Claude-inspired) */
+    --primary: 22 78% 56%;
+    --primary-foreground: 30 25% 97%;
 
-    --secondary: 250 20% 94%;
-    --secondary-foreground: 250 25% 10%;
+    /* Soft cream secondary */
+    --secondary: 30 20% 93%;
+    --secondary-foreground: 20 15% 17%;
 
-    --muted: 250 15% 92%;
-    --muted-foreground: 250 10% 45%;
+    /* Light beige muted */
+    --muted: 30 18% 90%;
+    --muted-foreground: 25 10% 42%;
 
-    --accent: 280 70% 60%;
-    --accent-foreground: 0 0% 100%;
+    /* Warm peach accent */
+    --accent: 22 85% 66%;
+    --accent-foreground: 20 15% 17%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 30 25% 97%;
 
-    --border: 250 15% 88%;
-    --input: 250 15% 88%;
-    --ring: 262 83% 58%;
+    /* Warm borders */
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 22 78% 56%;
 
     --radius: 0.75rem;
 
-    /* Custom purple palette */
-    --purple-50: 270 100% 98%;
-    --purple-100: 269 100% 95%;
-    --purple-200: 269 100% 92%;
-    --purple-300: 269 97% 85%;
-    --purple-400: 270 95% 75%;
-    --purple-500: 262 83% 58%;
-    --purple-600: 262 83% 50%;
-    --purple-700: 263 70% 45%;
-    --purple-800: 263 69% 32%;
-    --purple-900: 264 67% 20%;
+    /* Custom orange palette for gradients and effects */
+    --orange-50: 30 100% 97%;
+    --orange-100: 28 100% 95%;
+    --orange-200: 26 100% 90%;
+    --orange-300: 24 95% 80%;
+    --orange-400: 23 90% 70%;
+    --orange-500: 22 78% 56%;
+    --orange-600: 20 75% 48%;
+    --orange-700: 18 70% 42%;
+    --orange-800: 16 65% 32%;
+    --orange-900: 14 60% 24%;
 
-    --sidebar-background: 250 20% 98%;
-    --sidebar-foreground: 250 25% 10%;
-    --sidebar-primary: 262 83% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 250 20% 94%;
-    --sidebar-accent-foreground: 250 25% 10%;
-    --sidebar-border: 250 15% 88%;
-    --sidebar-ring: 262 83% 58%;
+    /* Copper accent for highlights */
+    --copper: 25 52% 51%;
+
+    /* Sage green for contrast */
+    --sage: 125 20% 55%;
+
+    --sidebar-background: 30 25% 97%;
+    --sidebar-foreground: 20 15% 17%;
+    --sidebar-primary: 22 78% 56%;
+    --sidebar-primary-foreground: 30 25% 97%;
+    --sidebar-accent: 30 20% 93%;
+    --sidebar-accent-foreground: 20 15% 17%;
+    --sidebar-border: 30 15% 85%;
+    --sidebar-ring: 22 78% 56%;
   }
 
   .dark {
-    --background: 260 25% 8%;
-    --foreground: 250 20% 95%;
+    /* Rich charcoal backgrounds */
+    --background: 20 15% 10%;
+    --foreground: 30 20% 95%;
 
-    --card: 260 25% 12%;
-    --card-foreground: 250 20% 95%;
+    --card: 20 15% 14%;
+    --card-foreground: 30 20% 95%;
 
-    --popover: 260 25% 12%;
-    --popover-foreground: 250 20% 95%;
+    --popover: 20 15% 14%;
+    --popover-foreground: 30 20% 95%;
 
-    --primary: 262 83% 65%;
-    --primary-foreground: 260 25% 8%;
+    /* Vibrant orange for dark mode */
+    --primary: 22 95% 62%;
+    --primary-foreground: 20 15% 10%;
 
-    --secondary: 260 20% 18%;
-    --secondary-foreground: 250 20% 95%;
+    /* Dark warm gray secondary */
+    --secondary: 20 12% 20%;
+    --secondary-foreground: 30 20% 95%;
 
-    --muted: 260 20% 18%;
-    --muted-foreground: 250 15% 60%;
+    /* Medium warm gray muted */
+    --muted: 20 12% 20%;
+    --muted-foreground: 30 12% 58%;
 
-    --accent: 280 70% 65%;
-    --accent-foreground: 260 25% 8%;
+    /* Warm coral accent */
+    --accent: 18 100% 70%;
+    --accent-foreground: 20 15% 10%;
 
     --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 30 20% 95%;
 
-    --border: 260 20% 20%;
-    --input: 260 20% 20%;
-    --ring: 262 83% 65%;
+    /* Dark borders */
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 22 95% 62%;
 
-    --sidebar-background: 260 25% 10%;
-    --sidebar-foreground: 250 20% 95%;
-    --sidebar-primary: 262 83% 65%;
-    --sidebar-primary-foreground: 260 25% 8%;
-    --sidebar-accent: 260 20% 18%;
-    --sidebar-accent-foreground: 250 20% 95%;
-    --sidebar-border: 260 20% 20%;
-    --sidebar-ring: 262 83% 65%;
+    /* Copper and sage for dark mode */
+    --copper: 25 60% 58%;
+    --sage: 125 25% 60%;
+
+    --sidebar-background: 20 15% 12%;
+    --sidebar-foreground: 30 20% 95%;
+    --sidebar-primary: 22 95% 62%;
+    --sidebar-primary-foreground: 20 15% 10%;
+    --sidebar-accent: 20 12% 20%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 20 12% 22%;
+    --sidebar-ring: 22 95% 62%;
   }
 }
 
@@ -109,22 +131,30 @@
 }
 
 @layer utilities {
+  /* Gradient text with warm orange animation */
   .gradient-text {
     @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient;
   }
 
+  /* Warm gradient backgrounds */
   .gradient-bg {
     @apply bg-gradient-to-br from-primary/10 via-accent/5 to-transparent;
   }
 
-  .gradient-purple {
+  .gradient-orange {
     @apply bg-gradient-to-r from-primary to-accent;
   }
 
+  .gradient-warm {
+    @apply bg-gradient-to-br from-orange-100 via-orange-50 to-background;
+  }
+
+  /* Glass morphism effect with warm tones */
   .glass-card {
     @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-lg;
   }
 
+  /* Warm orange glow effects */
   .glow-primary {
     box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
   }
@@ -133,8 +163,29 @@
     box-shadow: 0 0 40px hsl(var(--accent) / 0.3);
   }
 
+  .glow-orange {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 0 0 60px hsl(var(--accent) / 0.2);
+  }
+
+  .glow-hover {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .glow-hover:hover {
+    box-shadow: 0 0 50px hsl(var(--primary) / 0.5), 0 0 80px hsl(var(--accent) / 0.3);
+  }
+
+  /* Warm text effects */
   .text-balance {
     text-wrap: balance;
+  }
+
+  .text-copper {
+    color: hsl(var(--copper));
+  }
+
+  .text-sage {
+    color: hsl(var(--sage));
   }
 }
 
