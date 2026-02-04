@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashutosh Bhagwat | Redirecting...</title>
+  <script type="text/javascript">
+    // Single Page App GitHub Pages Redirect
+    // Store the path in sessionStorage and redirect to root
+    // The React app will pick this up and navigate to the correct route
+
+    (function () {
+      var location = window.location;
+      var path = location.pathname + location.search + location.hash;
+
+      // Store the path for the React app to pick up
+      sessionStorage.setItem('spa-redirect', path);
+
+      // Redirect to the root
+      window.location.replace(location.origin);
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <h1>Redirecting...</h1>
+    <p>Please enable JavaScript or go to the <a href="/">home page</a>.</p>
+  </noscript>
+</body>
+
+</html>

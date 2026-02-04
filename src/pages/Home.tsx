@@ -14,7 +14,7 @@ import { Navbar } from '@/components/Navbar';
 import { setPageTitle, pageTitles } from '@/lib/pageTitle';
 
 const typingPhrases = [
-  "debugging at 3 AM...",
+  "solving real-world problems...",
   "optimizing edge devices...",
   "deploying across continents...",
   "turning cameras into intelligence...",
@@ -145,8 +145,8 @@ export default function Home() {
                 <div>
                   <h3 className="text-lg font-bold mb-3">The Real Story</h3>
                   <p className="text-foreground/80 leading-relaxed mb-4">
-                    Most AI engineers optimize for accuracy on benchmarks. I optimize for systems that work at 3 AM
-                    in rural Nigeria with intermittent internet. Most build for GPUs in datacenters. I build for
+                    Most AI engineers optimize for accuracy on benchmarks. I optimize for systems that work reliably
+                    in challenging environments with intermittent internet. Most build for GPUs in datacenters. I build for
                     Raspberry Pis in ATM kiosks running 24/7 without maintenance.
                   </p>
                   <p className="text-foreground/80 leading-relaxed">
@@ -160,7 +160,7 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild size="lg" className="gradient-orange text-primary-foreground px-8 glow-hover">
-                <Link to="/journey">
+                <Link to="/experience">
                   <Code2 className="mr-2 h-5 w-5" />
                   Explore My Journey
                 </Link>
@@ -174,20 +174,20 @@ export default function Home() {
 
             {/* Fun fact */}
             <p className="text-center mt-8 text-sm text-muted-foreground italic">
-              💡 Fun fact: Still excited about every debug session (even the 3 AM ones)
+              💡 Fun fact: Still excited about every debug session — complexity is just opportunity in disguise
             </p>
           </div>
         </div>
 
         {/* Floating code snippets decoration */}
         <div className="absolute top-20 left-10 opacity-20 text-xs font-mono text-primary animate-float hidden lg:block">
-          if (challenge.isHard) &#123;<br/>
-          &nbsp;&nbsp;solve();<br/>
+          if (challenge.isHard) &#123;<br />
+          &nbsp;&nbsp;solve();<br />
           &#125;
         </div>
         <div className="absolute bottom-20 right-10 opacity-20 text-xs font-mono text-primary animate-float hidden lg:block" style={{ animationDelay: '1s' }}>
-          while (learning) &#123;<br/>
-          &nbsp;&nbsp;build++;<br/>
+          while (learning) &#123;<br />
+          &nbsp;&nbsp;build++;<br />
           &#125;
         </div>
       </section>

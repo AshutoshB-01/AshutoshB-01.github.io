@@ -42,14 +42,27 @@ export default function ProjectDetail() {
     );
   }
 
-  const handlePasswordSubmit = (e: React.FormEvent) => {
+  const handlePasswordSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (verifyPassword(password)) {
-      setIsUnlocked(true);
-      setError('');
-      setPassword('');
-    } else {
-      setError('Incorrect password. Please try again.');
+    
+    // Don't allow empty passwords
+    if (!password.trim()) {
+      setError('Please enter a password.');
+      return;
+    }
+    
+    try {
+      const isValid = await verifyPassword(password);
+      if (isValid) {
+        setIsUnlocked(true);
+        setError('');
+        setPassword('');
+      } else {
+        setError('Incorrect password. Please try again.');
+        setPassword('');
+      }
+    } catch (err) {
+      setError('Verification failed. Please try again.');
       setPassword('');
     }
   };

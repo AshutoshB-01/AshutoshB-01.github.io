@@ -21,6 +21,13 @@ export function PasswordModal({ isOpen, onClose, onSuccess, projectTitle }: Pass
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Don't allow empty passwords
+    if (!password.trim()) {
+      setError('Please enter a password.');
+      return;
+    }
+
     setIsLoading(true);
     setError('');
 

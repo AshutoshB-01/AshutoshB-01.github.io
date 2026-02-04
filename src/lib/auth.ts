@@ -15,16 +15,13 @@ export async function hashPassword(password: string): Promise<string> {
 }
 
 /**
- * Secure 32-character password for protected content access
- * Password: Tx9mK3pL7wQn2vB4rYhF6sNc8jUz5aE1
- * SHA-256 Hash stored below for verification
+ * Password for protected content access
+ * Password: Krishna#2006
  */
-const STORED_PASSWORD_HASH = 'f8e3c7b2a5d9e1f4a7c2b8d3e6f1a9c4d7e2b5f8c1d4e7a3b6c9f2d5e8a1b4c7';
-
 export async function verifyPassword(inputPassword: string): Promise<boolean> {
   try {
     const inputHash = await hashPassword(inputPassword);
-    const correctHash = await hashPassword('Tx9mK3pL7wQn2vB4rYhF6sNc8jUz5aE1');
+    const correctHash = await hashPassword('Krishna#2006');
     return inputHash === correctHash;
   } catch (error) {
     console.error('Password verification error:', error);

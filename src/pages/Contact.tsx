@@ -68,7 +68,7 @@ const openToItems = [
   {
     icon: Coffee,
     title: 'Coffee Chats ☕',
-    description: 'Life, tech, debugging at 3 AM, or your favorite ML paper',
+    description: 'Life, tech, interesting problems, or your favorite ML paper',
     color: 'from-amber-500 to-yellow-500'
   }
 ];
