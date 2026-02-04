@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashutosh Bhagwat | AI Solution Engineer</title>
+    <script type="text/javascript">
+      // Single Page App GitHub Pages Redirect
+      // This script redirects 404 errors to the main page while preserving the path
+      // The path is stored in sessionStorage and picked up by the main app
+      
+      var pathSegmentsToKeep = 0; // For user.github.io sites, keep 0 segments
+      
+      var l = window.location;
+      var segmentCount = l.pathname.split('/').length - 1 - pathSegmentsToKeep;
+      var newPath = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/');
+      
+      // Store the path and redirect to home
+      sessionStorage.setItem('redirectPath', '/' + newPath + (l.search || ''));
+      
+      // Redirect to home page
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + 
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/'
+      );
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <h1>Page Not Found</h1>
+      <p>Please enable JavaScript or navigate to the <a href="/">home page</a>.</p>
+    </noscript>
+  </body>
+</html>
